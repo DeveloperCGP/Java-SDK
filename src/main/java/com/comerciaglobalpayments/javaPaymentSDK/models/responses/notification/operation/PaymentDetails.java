@@ -43,8 +43,6 @@ public class PaymentDetails {
     @JsonProperty("issuerCountry")
     private String issuerCountry;
 
-    @JacksonXmlProperty(localName = "extraDetails")
-    @JsonProperty("extraDetails")
     private ExtraDetails extraDetails;
 
     public PaymentDetails() {
