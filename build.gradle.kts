@@ -1,13 +1,34 @@
 plugins {
     id("java")
     kotlin("jvm")
+    id("maven-publish")
+    id("java-library")
 }
 
 group = "com.comerciaglobalpayments"
-version = "01.00.00"
+version = "01.00.01"
 
 repositories {
     mavenCentral()
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("JavaPaymentSdk") {
+            from(components["java"])
+            groupId = "com.comerciaglobalpayments"
+            artifactId =  "java-sdk"
+        }
+    }
+    repositories {
+        maven {
+            url = uri(project.findProperty("url") as String? ?: System.getenv("URL") ?: "")
+            credentials {
+                username = project.findProperty("user") as String? ?: System.getenv("USERNAME") ?: ""
+                password = project.findProperty("token") as String? ?: System.getenv("TOKEN") ?: ""
+            }
+        }
+    }
 }
 
 dependencies {

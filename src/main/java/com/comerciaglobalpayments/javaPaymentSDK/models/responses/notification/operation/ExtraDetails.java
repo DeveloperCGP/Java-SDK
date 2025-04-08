@@ -1,92 +1,85 @@
 package com.comerciaglobalpayments.javaPaymentSDK.models.responses.notification.operation;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
+import java.util.List;
+
 @JacksonXmlRootElement
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class ExtraDetails {
 
-    @JacksonXmlProperty(localName = "nemuruTxnId")
-    @JsonProperty("nemuruTxnId")
-    private String nemuruTxnId;
-    @JacksonXmlProperty(localName = "nemuruCartHash")
-    @JsonProperty("nemuruCartHash")
-    private String nemuruCartHash;
-    @JacksonXmlProperty(localName = "nemuruAuthToken")
-    @JsonProperty("nemuruAuthToken")
-    private String nemuruAuthToken;
-    @JacksonXmlProperty(localName = "nemuruDisableFormEdition")
-    @JsonProperty("nemuruDisableFormEdition")
-    private String nemuruDisableFormEdition;
-    @JacksonXmlProperty(localName = "status")
-    @JsonProperty("status")
-    private String status;
-    @JacksonXmlProperty(localName = "disableFormEdition")
-    @JsonProperty("disableFormEdition")
-    private String disableFormEdition;
+    @JacksonXmlElementWrapper(useWrapping = false)
+    @JacksonXmlProperty(localName = "entry")
+    public List<Entry> entry;
 
     public ExtraDetails() {
     }
 
-    public ExtraDetails(String nemuruTxnId, String nemuruCartHash, String nemuruAuthToken, String nemuruDisableFormEdition, String status, String disableFormEdition) {
-        this.nemuruTxnId = nemuruTxnId;
-        this.nemuruCartHash = nemuruCartHash;
-        this.nemuruAuthToken = nemuruAuthToken;
-        this.nemuruDisableFormEdition = nemuruDisableFormEdition;
-        this.status = status;
-        this.disableFormEdition = disableFormEdition;
+    public ExtraDetails(List<Entry> entry) {
+        this.entry = entry;
+    }
+
+    public List<Entry> getEntry() {
+        return entry;
+    }
+
+    public void setEntry(List<Entry> entry) {
+        this.entry = entry;
     }
 
     public String getNemuruTxnId() {
-        return nemuruTxnId;
+        for (Entry value : entry) {
+            if (value.getKey().equalsIgnoreCase("nemuruTxnId")) {
+                return value.getValue();
+            }
+        }
+        return null;
     }
 
-    public void setNemuruTxnId(String nemuruTxnId) {
-        this.nemuruTxnId = nemuruTxnId;
-    }
 
     public String getNemuruCartHash() {
-        return nemuruCartHash;
-    }
-
-    public void setNemuruCartHash(String nemuruCartHash) {
-        this.nemuruCartHash = nemuruCartHash;
+        for (Entry value : entry) {
+            if (value.getKey().equalsIgnoreCase("nemuruCartHash")) {
+                return value.getValue();
+            }
+        }
+        return null;
     }
 
     public String getNemuruAuthToken() {
-        return nemuruAuthToken;
-    }
-
-    public void setNemuruAuthToken(String nemuruAuthToken) {
-        this.nemuruAuthToken = nemuruAuthToken;
+        for (Entry value : entry) {
+            if (value.getKey().equalsIgnoreCase("nemuruAuthToken")) {
+                return value.getValue();
+            }
+        }
+        return null;
     }
 
     public String getNemuruDisableFormEdition() {
-        return nemuruDisableFormEdition;
-    }
-
-    public void setNemuruDisableFormEdition(String nemuruDisableFormEdition) {
-        this.nemuruDisableFormEdition = nemuruDisableFormEdition;
+        for (Entry value : entry) {
+            if (value.getKey().equalsIgnoreCase("nemuruDisableFormEdition")) {
+                return value.getValue();
+            }
+        }
+        return null;
     }
 
     public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+        for (Entry value : entry) {
+            if (value.getKey().equalsIgnoreCase("status")) {
+                return value.getValue();
+            }
+        }
+        return null;
     }
 
     public String getDisableFormEdition() {
-        return disableFormEdition;
-    }
-
-    public void setDisableFormEdition(String disableFormEdition) {
-        this.disableFormEdition = disableFormEdition;
+        for (Entry value : entry) {
+            if (value.getKey().equalsIgnoreCase("disableFormEdition")) {
+                return value.getValue();
+            }
+        }
+        return null;
     }
 }

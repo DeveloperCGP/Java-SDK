@@ -1,5 +1,6 @@
 package com.comerciaglobalpayments.javaPaymentSDK.models.responses.notification;
 
+import com.comerciaglobalpayments.javaPaymentSDK.models.responses.notification.operation.OptionalTransactionParams;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -35,14 +36,17 @@ public class Notification {
     @JsonProperty("workFlowResponse")
     private WorkFlowResponse workFlowResponse;
 
+    private OptionalTransactionParams optionalTransactionParams = null;
+
     public Notification() {
     }
 
-    public Notification(String message, String status, List<Operation> operations, WorkFlowResponse workFlowResponse) {
+    public Notification(String message, String status, List<Operation> operations, WorkFlowResponse workFlowResponse, OptionalTransactionParams optionalTransactionParams) {
         this.message = message;
         this.status = status;
         this.operations = operations;
         this.workFlowResponse = workFlowResponse;
+        this.optionalTransactionParams = optionalTransactionParams;
     }
 
     public String getMessage() {
@@ -75,6 +79,14 @@ public class Notification {
 
     public void setWorkFlowResponse(WorkFlowResponse workFlowResponse) {
         this.workFlowResponse = workFlowResponse;
+    }
+
+    public OptionalTransactionParams getOptionalTransactionParams() {
+        return optionalTransactionParams;
+    }
+
+    public void setOptionalTransactionParams(OptionalTransactionParams optionalTransactionParams) {
+        this.optionalTransactionParams = optionalTransactionParams;
     }
 
     public boolean isLastNotification() {

@@ -495,4 +495,295 @@ public class NotificationResponses {
             "        ]\n" +
             "    }\n" +
             "}";
+
+
+    public static String xmlNotificationWithOptionalTransactionParams = """
+            <response operation-size="3">
+            \t<message>WorkFlow has finished successfully, for transaction Id: 8232609</message>
+            \t<operations>
+            \t\t<operation sorted-order="1">
+            \t\t\t<amount>13</amount>
+            \t\t\t<currency>EUR</currency>
+            \t\t\t<merchantTransactionId>1496918</merchantTransactionId>
+            \t\t\t<operationType>DEBIT</operationType>
+            \t\t\t<paySolTransactionId>75f90db0-62fd-43f1-8d03-10aada0ba914</paySolTransactionId>
+            \t\t\t<service>TRA</service>
+            \t\t\t<status>SUCCESS</status>
+            \t\t\t<transactionId>8232609</transactionId>
+            \t\t\t<respCode>
+            \t\t\t\t<code>8203</code>
+            \t\t\t\t<message>Frictionless requires</message>
+            \t\t\t\t<uuid>84a42475_753a_41ca_845c_a9be82c5502d</uuid>
+            \t\t\t</respCode>
+            \t\t</operation>
+            \t\t<operation sorted-order="2">
+            \t\t\t<amount>13</amount>
+            \t\t\t<currency>EUR</currency>
+            \t\t\t<merchantTransactionId>1496918</merchantTransactionId>
+            \t\t\t<message>3dsv2 - processed</message>
+            \t\t\t<operationType>DEBIT</operationType>
+            \t\t\t<paymentDetails>
+            \t\t\t\t<cardNumberToken>5076961162482227</cardNumberToken>
+            \t\t\t\t<extraDetails/>
+            \t\t\t</paymentDetails>
+            \t\t\t<service>3DSv2</service>
+            \t\t\t<status>SUCCESS3DS</status>
+            \t\t\t<transactionId>8232609</transactionId>
+            \t\t\t<respCode>
+            \t\t\t\t<code>8000</code>
+            \t\t\t\t<message>Successful authentication</message>
+            \t\t\t\t<uuid>b8266225_5b13_42a1_96cf_d1f99104048c</uuid>
+            \t\t\t</respCode>
+            \t\t\t<mpi>
+            \t\t\t\t<acsTransID>163c965a-9772-4bb1-a2f4-e96e184a2661</acsTransID>
+            \t\t\t\t<authMethod>01</authMethod>
+            \t\t\t\t<authTimestamp>202502111428</authTimestamp>
+            \t\t\t\t<authenticationStatus>Y</authenticationStatus>
+            \t\t\t\t<cavv>AJkBB4OBmVFmgYFYFIGZAAAAAAA=</cavv>
+            \t\t\t\t<eci>05</eci>
+            \t\t\t\t<messageVersion>2.2.0</messageVersion>
+            \t\t\t\t<threeDSSessionData>MDI4M2I5NGEtMmJjYS00MWZlLWI1NmItZmQ3MzNlY2NiNTIw</threeDSSessionData>
+            \t\t\t\t<threeDSv2Token>0283b94a-2bca-41fe-b56b-fd733eccb520</threeDSv2Token>
+            \t\t\t</mpi>
+            \t\t\t<paymentCode>nsY1</paymentCode>
+            \t\t\t<paymentMessage>Authenticated successfully</paymentMessage>
+            \t\t</operation>
+            \t\t<operation sorted-order="3">
+            \t\t\t<amount>13.00</amount>
+            \t\t\t<currency>EUR</currency>
+            \t\t\t<details>{"resultCode":"00000","resultDescription":"OK","values":{"rfTransactionCurrency":"EUR","rfRTS":"355534686 790190 663444 250211152849","rfContactlessLogo":"false","rfOperationType":"Settle","rfAuthMode":"On","rfDataEntryMode":"Manual","rfCardHolderVerificationMode":"No","rfFuc":"355534686","rfTerminalID":"00000500","rfProcessor":"Redsys","rfMerchantCity":"BARCELONA","rfMerchantPostalCode":"08014","rfMerchantAddress":"GRAN VIA DE LES CORTS CATALANE, 159 PLANTA 7","rfMaskedPan":"************2227","rfOperationDateTime":"11/02/25 15:28:49","rfTerminalOperationNumber":"3154","rfAuthNumber":"630189","rfTransactionAmountCurrency":"13,00 EUR","rfProcessorMessage":"","rfPrintSignatureBox":"false","rfCardPresent":"true","rfReferenceId":"3154","posTransactionToken":"{\\"pucIdMsg\\":\\"1200\\",\\"pucP3ProcessCode\\":\\"000000\\",\\"pucP4OriginalAmount\\":\\"000000001300\\",\\"pucP11TransactionNumber\\":\\"663444\\",\\"pucP12LocalDateTime\\":\\"250211152849\\",\\"pucP22ServicePointData\\":\\"1U00506K3000\\",\\"pucP38AuthNumber\\":\\"630189\\",\\"pucP39ActionCode\\":\\"000\\",\\"pucP53SecurityControlInfo\\":\\"0102000001000000\\",\\"pinpadId\\":\\"355534686\\",\\"pinpadAcquirerId\\":\\"00000500\\",\\"pinpadManufacturer\\":null,\\"pinpadModel\\":null,\\"pinpadSerialNumber\\":null,\\"pinpadSoftwareName\\":null,\\"pinpadSoftwareVersion\\":null,\\"pinpadKernelEmv\\":null,\\"pinpadVccStrip\\":null,\\"pinpadVerPup\\":null,\\"pinpadPciStage\\":null,\\"pinpadVerEmvParams\\":null,\\"pinpadEmvType\\":null,\\"pinpadCapabilities\\":null,\\"pinpadLanguage\\":null,\\"transactionType\\":\\"O\\",\\"transactionContactless\\":\\"0\\",\\"transactionDcc\\":\\"0\\",\\"transactionDccComission\\":null,\\"transactionDccExchangeRate\\":null,\\"transactionDccMarkUp\\":null,\\"transactionDccEntity\\":null,\\"transactionDccBceExchangeRate\\":null,\\"transactionDccBceMarkUp\\":null,\\"transactionPanSequenceNumber\\":null,\\"transactionTerminalOperationNumber\\":\\"3154\\",\\"transactionResponseCode\\":null,\\"transactionCurrency\\":\\"978\\",\\"transactionFuc\\":\\"355534686\\",\\"cardMaskedPan\\":\\"************2227\\",\\"cardAid\\":null,\\"cardDdfName\\":null,\\"cardApplicationLabel\\":null,\\"cardCypherData\\":null}","OperationResult":"000"},"threeDsProtocolVersion":"2.2.0"}</details>
+            \t\t\t<merchantTransactionId>1496918</merchantTransactionId>
+            \t\t\t<message>Success 'Settle' operation</message>
+            \t\t\t<operationType>DEBIT</operationType>
+            \t\t\t<optionalTransactionParams>
+            \t\t\t\t<entry>
+            \t\t\t\t\t<key>sdk</key>
+            \t\t\t\t\t<value>php</value>
+            \t\t\t\t</entry>
+            \t\t\t\t<entry>
+            \t\t\t\t\t<key>type</key>
+            \t\t\t\t\t<value>JsCharge</value>
+            \t\t\t\t</entry>
+            \t\t\t\t<entry>
+            \t\t\t\t\t<key>version</key>
+            \t\t\t\t\t<value>1.00</value>
+            \t\t\t\t</entry>
+            \t\t\t</optionalTransactionParams>
+            \t\t\t<paySolTransactionId>355534686 790190 663444 250211152849</paySolTransactionId>
+            \t\t\t<paymentDetails>
+            \t\t\t\t<cardHolderName>test</cardHolderName>
+            \t\t\t\t<cardNumber>490727****2227</cardNumber>
+            \t\t\t\t<cardNumberToken>5076961162482227</cardNumberToken>
+            \t\t\t\t<cardType>VISA/CREDIT</cardType>
+            \t\t\t\t<expDate>0230</expDate>
+            \t\t\t\t<extraDetails>
+            \t\t\t\t\t<entry>
+            \t\t\t\t\t\t<key>cardCategory</key>
+            \t\t\t\t\t\t<value>Not Available</value>
+            \t\t\t\t\t</entry>
+            \t\t\t\t\t<entry>
+            \t\t\t\t\t\t<key>rememberMe</key>
+            \t\t\t\t\t\t<value>false</value>
+            \t\t\t\t\t</entry>
+            \t\t\t\t</extraDetails>
+            \t\t\t\t<issuerBank>SERVIRED MASTERCARD INTERNACIONAL</issuerBank>
+            \t\t\t\t<issuerCountry>ES</issuerCountry>
+            \t\t\t</paymentDetails>
+            \t\t\t<paymentMethod>19900</paymentMethod>
+            \t\t\t<paymentSolution>caixapucpuce</paymentSolution>
+            \t\t\t<status>SUCCESS</status>
+            \t\t\t<transactionId>8232609</transactionId>
+            \t\t\t<respCode>
+            \t\t\t\t<code>0000</code>
+            \t\t\t\t<message>Successful</message>
+            \t\t\t\t<uuid>762f5347_280e_44ce_9673_9ec3c6d7ff87</uuid>
+            \t\t\t</respCode>
+            \t\t\t<authCode>630189</authCode>
+            \t\t\t<mpi>
+            \t\t\t\t<eci>05</eci>
+            \t\t\t</mpi>
+            \t\t\t<paymentCode>000</paymentCode>
+            \t\t\t<paymentMessage>Operación finalizada con éxito</paymentMessage>
+            \t\t</operation>
+            \t</operations>
+            \t<optionalTransactionParams>
+            \t\t<entry>
+            \t\t\t<key>sdk</key>
+            \t\t\t<value>php</value>
+            \t\t</entry>
+            \t\t<entry>
+            \t\t\t<key>type</key>
+            \t\t\t<value>JsCharge</value>
+            \t\t</entry>
+            \t\t<entry>
+            \t\t\t<key>version</key>
+            \t\t\t<value>1.00</value>
+            \t\t</entry>
+            \t</optionalTransactionParams>
+            \t<status>SUCCESS</status>
+            \t<workFlowResponse>
+            \t\t<id>48787</id>
+            \t\t<name>debit creditcards (TRA)</name>
+            \t\t<version>0</version>
+            \t</workFlowResponse>
+            </response>""";
+
+    public static String jsonNotificationWithOptionalTransactionParams = """
+            {
+                "response": {
+                    "workFlowResponse": {
+                        "id": 48787,
+                        "name": "debit creditcards (TRA)",
+                        "version": 0
+                    },
+                    "status": "SUCCESS",
+                    "message": "WorkFlow has finished successfully, for transaction Id: 8234193",
+                    "optionalTransactionParams": {
+                        "ClaveN": "ValorN",
+                        "Clave1": "Valor1",
+                        "Clave2": "Valor2"
+                    },
+                    "operationSize": 2,
+                    "operationsArray": [
+                        {
+                            "sortedOrder": 1,
+                            "status": "SUCCESS",
+                            "message": null,
+                            "payFrexTransactionId": null,
+                            "merchantTransactionId": "23506844",
+                            "paySolTransactionId": "8439e208-1229-4908-966e-7b26386fd4a1",
+                            "operationType": "DEBIT",
+                            "currency": "EUR",
+                            "amount": "30",
+                            "paymentSolution": null,
+                            "paymentMethod": null,
+                            "service": "TRA",
+                            "redirectionResponse": null,
+                            "redirectionParameters": null,
+                            "redirectionParam": null,
+                            "details": null,
+                            "originalPayFrexTransactionId": null,
+                            "originalCurrency": null,
+                            "originalAmount": null,
+                            "remainingAmount": null,
+                            "optionalTransactionParams": null,
+                            "checkoutURL": null,
+                            "fee": null,
+                            "checkFields": null,
+                            "statusType3DS": null,
+                            "paymentDetails": null,
+                            "extraInfo": {},
+                            "paymentResponse": null,
+                            "authCode": null,
+                            "paymentMessage": null,
+                            "paymentCode": null,
+                            "mpi": null,
+                            "subscriptionPlan": null,
+                            "rad": null,
+                            "respCode": {
+                                "type": "respCode",
+                                "code": "8203",
+                                "message": "Frictionless requires",
+                                "uuid": "f4a8816d_cf61_4500_a23f_342238abccbd"
+                            }
+                        },
+                        {
+                            "sortedOrder": 2,
+                            "status": "REDIRECTED",
+                            "message": "Starting 3DSecure 2.0 process.",
+                            "payFrexTransactionId": null,
+                            "merchantTransactionId": "23506844",
+                            "paySolTransactionId": null,
+                            "operationType": "DEBIT",
+                            "currency": "EUR",
+                            "amount": "30",
+                            "paymentSolution": null,
+                            "paymentMethod": null,
+                            "service": "3DSv2",
+                            "redirectionResponse": "redirect:https://checkout.stg-eu-west1.epgint.com/EPGCheckout/rest/online/3dsv2/redirect?action=gatherdevice&params=eyJ0aHJlZURTdjJUb2tlbiI6IjRhNzUwYmNlLWEwM2UtNGI1Ni1iMTRmLWE1YTBlNjc5YTRiOSIsInRocmVlRFNNZXRob2RVcmwiOiJodHRwczovL21vY2stZHMuc3RnLWV1LXdlc3QzLmVwZ2ludC5jb20vcHVibGljL21ldGhvZC1kYXRhLyIsInRocmVlRFNNZXRob2REYXRhIjoiZXlKMGFISmxaVVJUVTJWeWRtVnlWSEpoYm5OSlJDSTZJalJoTnpVd1ltTmxMV0V3TTJVdE5HSTFOaTFpTVRSbUxXRTFZVEJsTmpjNVlUUmlPU0lzSUNKMGFISmxaVVJUVFdWMGFHOWtUbTkwYVdacFkyRjBhVzl1VlZKTUlqb2dJbWgwZEhCek9pOHZZMmhsWTJ0dmRYUXVjM1JuTFdWMUxYZGxjM1F4TG1Wd1oybHVkQzVqYjIwdlJWQkhRMmhsWTJ0dmRYUXZZMkZzYkdKaFkyc3ZaMkYwYUdWeVJHVjJhV05sVG05MGFXWnBZMkYwYVc5dUwzQmhlWE52YkM4elpITjJNaTh4TVRBNE1UQTBJbjA9IiwiYnJhbmQiOiJWSVNBIiwicmVzdW1lQXV0aGVudGljYXRpb24iOiJodHRwczovL2NoZWNrb3V0LnN0Zy1ldS13ZXN0MS5lcGdpbnQuY29tL0VQR0NoZWNrb3V0L3JldHVybnVybC9mcmljdGlvbmxlc3MvcGF5c29sLzNkc3YyLzExMDgxMDQ/dGhyZWVEU3YyVG9rZW49NGE3NTBiY2UtYTAzZS00YjU2LWIxNGYtYTVhMGU2NzlhNGI5IiwicmVuZGVyQ2FzaGllckxvY2F0aW9uIjoiaHR0cHM6Ly9lcGdqcy1yZW5kZXJjYXNoaWVyLXN0Zy5lYXN5cGF5bWVudGdhdGV3YXkuY29tIiwiY2hhbGxlbmdlV2luZG93c1NpemUiOiIwNSJ9",
+                            "redirectionParameters": null,
+                            "redirectionParam": null,
+                            "details": null,
+                            "originalPayFrexTransactionId": null,
+                            "originalCurrency": null,
+                            "originalAmount": null,
+                            "remainingAmount": null,
+                            "optionalTransactionParams": {
+                                "sdk": "php",
+                                "type": "JsCharge",
+                                "version": "1.00"
+                            },
+                            "checkoutURL": null,
+                            "fee": null,
+                            "checkFields": null,
+                            "statusType3DS": null,
+                            "paymentDetails": {
+                                "issuerCountry": null,
+                                "issuerBank": null,
+                                "cardHolderName": "test",
+                                "cardType": null,
+                                "cardNumber": null,
+                                "account": null,
+                                "cardNumberToken": null,
+                                "expDate": null,
+                                "extraDetails": {
+                                    "threeDSMethodData": "eyJ0aHJlZURTU2VydmVyVHJhbnNJRCI6IjRhNzUwYmNlLWEwM2UtNGI1Ni1iMTRmLWE1YTBlNjc5YTRiOSIsICJ0aHJlZURTTWV0aG9kTm90aWZpY2F0aW9uVVJMIjogImh0dHBzOi8vY2hlY2tvdXQuc3RnLWV1LXdlc3QxLmVwZ2ludC5jb20vRVBHQ2hlY2tvdXQvY2FsbGJhY2svZ2F0aGVyRGV2aWNlTm90aWZpY2F0aW9uL3BheXNvbC8zZHN2Mi8xMTA4MTA0In0=",
+                                    "threeDSv2Token": "4a750bce-a03e-4b56-b14f-a5a0e679a4b9"
+                                }
+                            },
+                            "extraInfo": {},
+                            "paymentResponse": {
+                                "status": "REDIRECTED",
+                                "message": "Starting 3DSecure 2.0 process.",
+                                "paySolTransactionId": null,
+                                "details": null
+                            },
+                            "authCode": null,
+                            "paymentMessage": null,
+                            "paymentCode": null,
+                            "mpi": {
+                                "txnId": null,
+                                "enrolment": null,
+                                "message": null,
+                                "authDateTime": null,
+                                "authStatus": null,
+                                "cavv": null,
+                                "eci": null,
+                                "xid": null,
+                                "cavvAlgorithm": null,
+                                "status": null,
+                                "result": null,
+                                "acsUrl": null,
+                                "creq": null,
+                                "mpiHash": null,
+                                "threeDSv2Token": null,
+                                "threeDSSessionData": null,
+                                "threeDSMethodURL": "https://mock-ds.stg-eu-west3.epgint.com/public/method-data/",
+                                "acsEndProtocolVersion": "2.2.0",
+                                "acsStartProtocolVersion": "2.1.0",
+                                "dsEndProtocolVersion": "2.2.0",
+                                "dsStartProtocolVersion": "2.1.0",
+                                "acsInterface": null,
+                                "acsUiTemplate": null,
+                                "acsSignedContent": null,
+                                "dsTransId": null,
+                                "messageVersion": null,
+                                "acsTransID": null,
+                                "authData": null,
+                                "authMethod": null,
+                                "authTimestamp": null,
+                                "threeDSessionData": null
+                            },
+                            "subscriptionPlan": null,
+                            "rad": null,
+                            "respCode": {
+                                "type": "respCode",
+                                "code": "8101",
+                                "message": "Frictionless requires",
+                                "uuid": "9e347179_cdc8_4b0f_976f_3fed611eb125"
+                            }
+                        }
+                    ]
+                }
+            }""";
 }

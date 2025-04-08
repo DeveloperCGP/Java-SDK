@@ -11,6 +11,8 @@ import com.comerciaglobalpayments.javaPaymentSDK.enums.PaymentSolutions;
 import com.comerciaglobalpayments.javaPaymentSDK.exceptions.InvalidFieldException;
 import com.comerciaglobalpayments.javaPaymentSDK.utils.Utils;
 
+import java.util.List;
+
 @JacksonXmlRootElement
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -82,11 +84,14 @@ public class Operation {
     @JacksonXmlProperty(localName = "subscriptionPlan")
     @JsonProperty("subscriptionPlan")
     private String subscriptionPlan;
+    @JacksonXmlProperty(localName = "optionalTransactionParams")
+    private OptionalTransactionParams optionalTransactionParams = null;
+
 
     public Operation() {
     }
 
-    public Operation(double amount, Currency currency, String details, String merchantTransactionId, String paySolTransactionId, String service, String status, String transactionId, ResponseCode respCode, OperationTypes operationType, PaymentDetails paymentDetails, Mpi mpi, String paymentCode, String paymentMessage, String message, String paymentMethod, PaymentSolutions paymentSolution, String authCode, String rad, String radMessage, String redirectionResponse, String subscriptionPlan) {
+    public Operation(double amount, Currency currency, String details, String merchantTransactionId, String paySolTransactionId, String service, String status, String transactionId, ResponseCode respCode, OperationTypes operationType, PaymentDetails paymentDetails, Mpi mpi, String paymentCode, String paymentMessage, String message, String paymentMethod, PaymentSolutions paymentSolution, String authCode, String rad, String radMessage, String redirectionResponse, String subscriptionPlan, OptionalTransactionParams optionalTransactionParams) {
         this.amount = amount;
         this.currency = currency;
         this.details = details;
@@ -109,6 +114,7 @@ public class Operation {
         this.radMessage = radMessage;
         this.redirectionResponse = redirectionResponse;
         this.subscriptionPlan = subscriptionPlan;
+        this.optionalTransactionParams = optionalTransactionParams;
     }
 
     public double getAmount() {
@@ -289,5 +295,13 @@ public class Operation {
 
     public void setSubscriptionPlan(String subscriptionPlan) {
         this.subscriptionPlan = subscriptionPlan;
+    }
+
+    public OptionalTransactionParams getOptionalTransactionParams() {
+        return optionalTransactionParams;
+    }
+
+    public void setOptionalTransactionParams(OptionalTransactionParams optionalTransactionParams) {
+        this.optionalTransactionParams = optionalTransactionParams;
     }
 }
